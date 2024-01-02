@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ImageEngine resources</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/fontawesome.min.css">
+  </head>
+  <body>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"><img src="https://avatars.githubusercontent.com/u/55535760?s=48&v=4" width="30" height="30" class="d-inline-block align-top" alt="">
+</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">ImageEngine Resources</h1>
+    <p class="lead">A collection of resources for ImageEngine developers</p>
+<table class="table ">
+  <tbody>
+    <tr>
+      <td>Website</td>
+      <td><a href="https://imageengine.io">imageengine.io</td>
+    </tr>
+    <tr>
+      <td>Github</td>
+      <td><a href="https://github.com/imgeng/">github.com/imgeng</td>
+    </tr>
+    <tr>
+      <td>Documentation</td>
+      <td><a href="https://support.imageengine.io">support.imageengine.io</td>
+    </tr>
+    <tr>
+      <td>ImageEngine Control panel</td>
+      <td><a href="https://control.imageengine.io">control.imageengine.io</td>
+    </tr>
+    <tr>
+      <td>Twitter/X</td>
+      <td><a href="https://twitter.com/imagecdn">@imagecdn</td>
+    </tr>
+    <tr>
+      <td>ImageEngine Affiliate Program</td>
+      <td><a href="https://imageengine.io/affiliate-program-apply/">imageengine.io/affiliate-program-apply</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+<div class="container">
+<h1 id="toc_0">About ImageEngine</h1>
+
+<p>ImageEngine is an independent, global image CDN that automatically serves your users the leanest, greenest, fastest, and best-looking images regardless of device, browser, or network speed.</p>
+
+<h1 id="toc_1">About the ImageEngine Developer program</h1>
+
+<p>We will be launching a program for developers this winter. The launch platform will be <a href="https://www.producthunt.com/products/imageengine">ProductHunt</a>.</p>
+
+<p>Before the launch is scheduled, we want to build an audience. The audience is collected in two different ways:</p>
+
+<ul>
+<li>Follows on ProductHunt
+
+<ul>
+<li>Users with a ProductHunt user can follow ImageEngine and get notified of the launch.</li>
+<li>CTA: <a href="https://www.producthunt.com/products/imageengine">https://www.producthunt.com/products/imageengine</a></li>
+</ul></li>
+<li>Sign the waiting list 
+
+<ul>
+<li>Leave your email and get notified when the Developer program launches.</li>
+<li>CTA: ⁉️TBA</li>
+</ul></li>
+</ul>
+
+<h2 id="toc_2">Free for Developers</h2>
+
+<p>The Developer program includes a free ImageEngine account. No credit card is required. </p>
+
+<p>However, since it&#39;s free, there are some limitations:</p>
+
+<ul>
+<li>Max 10GB traffic per month (equivalent to ~100GB unoptimized image traffic)</li>
+<li>One delivery address/image origin</li>
+<li>No commercial use</li>
+</ul>
+
+<h1 id="toc_3">How ImageEngine Works</h1>
+
+<p>ImageEngine works the same way as most other CDNs by connecting an image origin (HTTP or S3) to a public delivery address. This mapping is called an &quot;Engine&quot;. Images are served from the delivery address.</p>
+
+<p><img src="https://support.imageengine.io/hc/article_attachments/4409984170765/Engine-Definition_vNL-01-01.svg" alt=""></p>
+
+<p><strong>Example:</strong></p>
+
+<p>Your website is <code>https://www.foo.com</code>, and your images are located on that host (origin), then your html may look like this: <code>&lt;img src=&quot;https://www.foo.com/image.jpg&quot;&gt;</code>.</p>
+
+<p>Next, assuming that the Engine configured with <code>www.foo.com</code> as origin, has this delivery addres <code>xyz.dev.cdn.imgeng.in</code>, then your updated <code>&lt;img&gt;</code> references will look like this:  <code>&lt;img src=&quot;https://xyz.dev.cdn.imgeng.in/image.jpg&quot;&gt;</code></p>
+
+<p><strong>Some demos:</strong></p>
+
+<ul>
+<li>Static HTML: <a href="https://imgeng.github.io/webshop/imageengine.html">https://imgeng.github.io/webshop/imageengine.html</a></li>
+<li>Vue3: <a href="https://codesandbox.io/p/github/imgeng/imageengine-vue3/main">https://codesandbox.io/p/github/imgeng/imageengine-vue3/</a></li>
+<li>React: <a href="https://codesandbox.io/p/sandbox/fervent-mirzakhani-yh124">https://codesandbox.io/p/sandbox/fervent-mirzakhani-yh124</a></li>
+<li>Nuxt Image: <a href="https://codesandbox.io/p/github/jonarnes/ie-nuxt-image/master">https://codesandbox.io/p/github/jonarnes/ie-nuxt-image/master</a></li>
+</ul>
+
+<h2 id="toc_4">The ImageEngine Control Panel</h2>
+
+<p>Engines, settings, configuration, statistics are available at <a href="https://control.imageengine.io/">control.imageengine.io</a></p>
+
+<p>Here is a quick overview of the features of the control panel:</p>
+
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/869648241?h=ae19eae7d9" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
+
+<h1 id="toc_5">Plugins</h1>
+
+<p>To make integration with real-life projects easier, a number of plugins are available:</p>
+
+<h2 id="toc_6">Platform plugins</h2>
+
+<h3 id="toc_7">WordPress</h3>
+
+<ul>
+<li>Marketplace: <a href="https://wordpress.org/plugins/image-cdn/">https://wordpress.org/plugins/image-cdn/</a></li>
+<li>Documentation: <a href="https://support.imageengine.io/hc/en-us/articles/360059593591-WordPress">https://support.imageengine.io/hc/en-us/articles/360059593591-WordPress</a></li>
+</ul>
+
+<h3 id="toc_8">Shopware</h3>
+
+<ul>
+<li>Marketplace: <a href="https://store.shopware.com/en/scien34559975981f/imageengine-cdn.html?number=Scien34559975981">store.shopware.com/en/scien34559975981f/imageengine-cdn.html</a></li>
+<li><p>Documentation: <a href="https://support.imageengine.io/hc/en-us/articles/7918912397325-Shopware-Plugin">https://support.imageengine.io/hc/en-us/articles/7918912397325-Shopware-Plugin</a></p>
+
+<h3 id="toc_9">Prestashop</h3></li>
+<li><p>Marketplace: <a href="https://addons.prestashop.com/en/seo-natural-search-engine-optimization/92045-imageengine-global-image-cdn-for-image-optimization.html">addons.prestashop.com/en/seo-natural-search-engine-optimization/92045-imageengine-global-image-cdn-for-image-optimization.html</a></p></li>
+<li><p>Documentation: <a href="https://support.imageengine.io/hc/en-us/articles/17307297268621-ImageEngine-Prestashop-Plugin">support.imageengine.io/hc/en-us/articles/17307297268621-ImageEngine-Prestashop-Plugin</a></p></li>
+</ul>
+
+<h3 id="toc_10">Magento</h3>
+
+<ul>
+<li>Documentation: <a href="https://support.imageengine.io/hc/en-us/articles/360059128332-Magento-2-x">support.imageengine.io/hc/en-us/articles/360059128332-Magento-2-x</a></li>
+</ul>
+
+<h3 id="toc_11">Contentful</h3>
+
+<p>Support via front-end dev frameworks and the <a href="https://support.imageengine.io/hc/en-us/articles/4415478443405-How-to-use-ImageEngine-and-Contentful-with-GatsbyJS">Gatsby native support</a>.</p>
+
+<h3 id="toc_12">Storyblok</h3>
+
+<p>Support via front-end dev frameworks and the <a href="https://support.imageengine.io/hc/en-us/articles/11312830331021-Getting-Started-with-Storyblok-and-ImageEngine-with-GatsbyJS">Gatsby native support</a>.</p>
+
+<h3 id="toc_13">Sanity.io</h3>
+
+<p>Support via front-end dev frameworks and the <a href="https://support.imageengine.io/hc/en-us/articles/4415463696525-How-to-use-ImageEngine-and-Sanity-io-with-GatsbyJS">Gatsby native support</a>.</p>
+
+<h2 id="toc_14">Development framework plugins</h2>
+
+<h3 id="toc_15">Vue</h3>
+
+<p>(not maintained anymore)</p>
+
+<ul>
+<li>Documentation: <a href="https://support.imageengine.io/hc/en-us/articles/4404168229005-Vue-js-Integration-Guide">https://support.imageengine.io/hc/en-us/articles/4404168229005-Vue-js-Integration-Guide</a></li>
+<li>Example App: </li>
+</ul>
+
+<h3 id="toc_16">Vue3</h3>
+
+<ul>
+<li>Documentation: </li>
+<li>npmjs.com: <a href="https://www.npmjs.com/package/@imageengine/vue3">https://www.npmjs.com/package/@imageengine/vue3</a></li>
+</ul>
+
+<h3 id="toc_17">React</h3>
+
+<ul>
+<li>Install: </li>
+<li>Documentation: </li>
+</ul>
+
+<h3 id="toc_18">Angular</h3>
+
+<ul>
+<li>Install:</li>
+<li>Documentation: </li>
+</ul>
+
+<h3 id="toc_19">Nuxt</h3>
+
+<ul>
+<li>Install:</li>
+<li>Documentation: </li>
+</ul>
+
+<h3 id="toc_20">Gatsby</h3>
+
+<ul>
+<li>Install:</li>
+<li>Documentation: </li>
+</ul>
+
+<h3 id="toc_21">Django</h3>
+
+<ul>
+<li>Install:</li>
+<li>Documentation: </li>
+</ul>
+
+<h3 id="toc_22">Laravel</h3>
+
+<ul>
+<li>Install:</li>
+<li>Documentation: </li>
+</ul>
+</div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
