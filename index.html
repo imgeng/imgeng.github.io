@@ -106,7 +106,9 @@
 </ul></li>
 </ul>
 
-<h2 id="toc_2">Free for Developers</h2>
+<p>We&#39;ll also offer early access to the ImageEngine Developer program for selected users. Users can sign up for a preview/beta of the Developer Program here: <a href="https://control.imageengine.io/register/dev">https://control.imageengine.io/register/dev</a></p>
+
+<h2 id="toc_2">Free for Developers, what&#39;s included</h2>
 
 <p>The Developer program includes a free ImageEngine account. No credit card is required. </p>
 
@@ -116,11 +118,12 @@
 <li>Max 10GB traffic per month (equivalent to ~100GB unoptimized image traffic)</li>
 <li>One delivery address/image origin</li>
 <li>No commercial use</li>
+<li>Support through Zendesk</li>
 </ul>
 
 <h1 id="toc_3">How ImageEngine Works</h1>
 
-<p>ImageEngine works the same way as most other CDNs by connecting an image origin (HTTP or S3) to a public delivery address. This mapping is called an &quot;Engine&quot;. Images are served from the delivery address.</p>
+<p>ImageEngine works like most other CDNs by connecting an image origin (HTTP or S3) to a public delivery address. This mapping is called an &quot;Engine&quot;. Images are served from the delivery address.</p>
 
 <p><img src="https://support.imageengine.io/hc/article_attachments/4409984170765/Engine-Definition_vNL-01-01.svg" alt=""></p>
 
@@ -128,7 +131,7 @@
 
 <p>Your website is <code>https://www.foo.com</code>, and your images are located on that host (origin), then your html may look like this: <code>&lt;img src=&quot;https://www.foo.com/image.jpg&quot;&gt;</code>.</p>
 
-<p>Next, assuming that the Engine configured with <code>www.foo.com</code> as origin, has this delivery addres <code>xyz.dev.cdn.imgeng.in</code>, then your updated <code>&lt;img&gt;</code> references will look like this:  <code>&lt;img src=&quot;https://xyz.dev.cdn.imgeng.in/image.jpg&quot;&gt;</code></p>
+<p>Next, assuming that the Engine configured with <code>www.foo.com</code> as origin, has this delivery address <code>xyz.dev.cdn.imgeng.in</code>, then your updated <code>&lt;img&gt;</code> references will look like this:  <code>&lt;img src=&quot;https://xyz.dev.cdn.imgeng.in/image.jpg&quot;&gt;</code></p>
 
 <p><strong>Some demos:</strong></p>
 
@@ -139,114 +142,163 @@
 <li>Nuxt Image: <a href="https://codesandbox.io/p/github/jonarnes/ie-nuxt-image/master">https://codesandbox.io/p/github/jonarnes/ie-nuxt-image/master</a></li>
 </ul>
 
-<h2 id="toc_4">The ImageEngine Control Panel</h2>
+<p>(More samples below)</p>
 
-<p>Engines, settings, configuration, statistics are available at <a href="https://control.imageengine.io/">control.imageengine.io</a></p>
+<h2 id="toc_4">URL Directives</h2>
+
+<p>Once a delivery address is obtained, ImageEngine is ready to optimize images. This can be done in &quot;auto mode&quot; or by the use of URL directives.</p>
+
+<p>Auto mode is where you simply provide the url to the image as it is on your website: <code>&lt;img src=&quot;//try.cdn.imgeng.in/img/bread.png&quot;&gt;.</code> In this case, ImageEngine will do its best effort in optimizing based on the information available.</p>
+
+<p>You may also use <a href="https://support.imageengine.io/hc/en-us/articles/360058880672">URL directives</a>: <code>&lt;img src=&quot;//try.cdn.imgeng.in/img/bread.png?imgeng=/w_300/f_webp&quot;&gt;</code>. URL directives are instructions to ImageEngine on how to optimize the image. For example, size, format, corps, rotation, etc.</p>
+
+<p>An additional handy feature is that ImageEngine can take any image URL and optimize it by prefixing it with the delivery address: <code>&lt;img src=&quot;//try.cdn.imgeng.in/http://jelly.com/img/bread.png&quot;&gt;</code>. Useful for testing multiple origins.</p>
+
+<h2 id="toc_5">The ImageEngine Control Panel</h2>
+
+<p>Engines, settings, configuration, and statistics are available at <a href="https://control.imageengine.io/">control.imageengine.io</a></p>
 
 <p>Here is a quick overview of the features of the control panel:</p>
 
 <iframe title="vimeo-player" src="https://player.vimeo.com/video/869648241?h=ae19eae7d9" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
 
-<h1 id="toc_5">Plugins</h1>
+<h2 id="toc_6">Some talking points</h2>
 
-<p>To make integration with real-life projects easier, a number of plugins are available:</p>
+<h3 id="toc_7">Debug image optimizations</h3>
 
-<h2 id="toc_6">Platform plugins</h2>
+<p>By adding a request header (with a browser plugin, command line with curl etc) ImageEngine will <a href="https://support.imageengine.io/hc/en-us/articles/4425571987085-Debug-and-Audit-ImageEngine-Optimization">respond with additional information about the image</a>. This is handy when debugging images and learning how they are optimized.</p>
 
-<h3 id="toc_7">WordPress</h3>
+<h3 id="toc_8">JPEG XL and AVIF support</h3>
+
+<p>ImageEngine already supports <a href="https://support.imageengine.io/hc/en-us/articles/16739209580301-JPEG-XL-jxl-in-ImageEngine">JPEG XL</a> and AVIF.</p>
+
+<p>Due to <a href="https://support.imageengine.io/hc/en-us/articles/16740317047693-Why-is-AVIF-not-enabled-by-default-">poor performance</a>, AVIF is <a href="https://support.imageengine.io/hc/en-us/articles/15814273599501-Enable-AVIF-support-on-your-engine">not enabled by default</a>.</p>
+
+<p>JPEG XL is currently enabled for PNG orign images, but full support will be rolled out shortly. Meanwhile, <a href="https://support.imageengine.io/hc/en-us/articles/18576588320141-Enable-JPEG-XL-on-your-engine">JPEG XL can be enabled manually</a>.</p>
+
+<h3 id="toc_9">Client Hints support</h3>
+
+<p>As the only Image CDN, we&#39;re proud to have the best <a href="https://support.imageengine.io/hc/en-us/articles/360059239131-Best-Practices-with-ImageEngine#use-client-hints">support for Client Hints</a>. In addition to <code>width</code>, <code>viewport-width</code> and <code>dpr</code> ImageEnigine also supports <code>ect</code> and <code>save-data</code>. </p>
+
+<h3 id="toc_10">Carbon Neutral images</h3>
+
+<p>With ImageEngine all image traffic is carbon neutral. We&#39;re <a href="https://imageengine.io/imageengine-sustainability-policy/">committed</a> to reducing the carbon footprint of ImageEngine.</p>
+
+<p>80% less bytes means 80% less emissions (rule of thumb). <a href="https://support.imageengine.io/hc/en-us/articles/15203285232525-Sustainable-Website-with-ImageEngine">Read more here</a></p>
+
+<p>Also worth noting is our <a href="https://support.imageengine.io/hc/en-us/articles/16495514108813-carbon-txt-What-is-it-and-Why-is-it-Important">support for carbon.txt</a></p>
+
+<h1 id="toc_11">Plugins and Modules</h1>
+
+<p>To make integration with real-life projects easier, several plugins are available:</p>
+
+<h2 id="toc_12">Platform plugins</h2>
+
+<h3 id="toc_13">WordPress</h3>
 
 <ul>
 <li>Marketplace: <a href="https://wordpress.org/plugins/image-cdn/">https://wordpress.org/plugins/image-cdn/</a></li>
 <li>Documentation: <a href="https://support.imageengine.io/hc/en-us/articles/360059593591-WordPress">https://support.imageengine.io/hc/en-us/articles/360059593591-WordPress</a></li>
 </ul>
 
-<h3 id="toc_8">Shopware</h3>
+<h3 id="toc_14">Shopware</h3>
 
 <ul>
 <li>Marketplace: <a href="https://store.shopware.com/en/scien34559975981f/imageengine-cdn.html?number=Scien34559975981">store.shopware.com/en/scien34559975981f/imageengine-cdn.html</a></li>
-<li><p>Documentation: <a href="https://support.imageengine.io/hc/en-us/articles/7918912397325-Shopware-Plugin">https://support.imageengine.io/hc/en-us/articles/7918912397325-Shopware-Plugin</a></p>
-
-<h3 id="toc_9">Prestashop</h3></li>
-<li><p>Marketplace: <a href="https://addons.prestashop.com/en/seo-natural-search-engine-optimization/92045-imageengine-global-image-cdn-for-image-optimization.html">addons.prestashop.com/en/seo-natural-search-engine-optimization/92045-imageengine-global-image-cdn-for-image-optimization.html</a></p></li>
-<li><p>Documentation: <a href="https://support.imageengine.io/hc/en-us/articles/17307297268621-ImageEngine-Prestashop-Plugin">support.imageengine.io/hc/en-us/articles/17307297268621-ImageEngine-Prestashop-Plugin</a></p></li>
+<li>Documentation: <a href="https://support.imageengine.io/hc/en-us/articles/7918912397325-Shopware-Plugin">https://support.imageengine.io/hc/en-us/articles/7918912397325-Shopware-Plugin</a></li>
 </ul>
 
-<h3 id="toc_10">Magento</h3>
+<h3 id="toc_15">Prestashop</h3>
+
+<ul>
+<li>Marketplace: <a href="https://addons.prestashop.com/en/seo-natural-search-engine-optimization/92045-imageengine-global-image-cdn-for-image-optimization.html">addons.prestashop.com/en/seo-natural-search-engine-optimization/92045-imageengine-global-image-cdn-for-image-optimization.html</a></li>
+<li>Documentation: <a href="https://support.imageengine.io/hc/en-us/articles/17307297268621-ImageEngine-Prestashop-Plugin">support.imageengine.io/hc/en-us/articles/17307297268621-ImageEngine-Prestashop-Plugin</a></li>
+</ul>
+
+<h3 id="toc_16">Magento</h3>
 
 <ul>
 <li>Documentation: <a href="https://support.imageengine.io/hc/en-us/articles/360059128332-Magento-2-x">support.imageengine.io/hc/en-us/articles/360059128332-Magento-2-x</a></li>
 </ul>
 
-<h3 id="toc_11">Contentful</h3>
+<h3 id="toc_17">Contentful</h3>
 
 <p>Support via front-end dev frameworks and the <a href="https://support.imageengine.io/hc/en-us/articles/4415478443405-How-to-use-ImageEngine-and-Contentful-with-GatsbyJS">Gatsby native support</a>.</p>
 
-<h3 id="toc_12">Storyblok</h3>
+<h3 id="toc_18">Storyblok</h3>
 
 <p>Support via front-end dev frameworks and the <a href="https://support.imageengine.io/hc/en-us/articles/11312830331021-Getting-Started-with-Storyblok-and-ImageEngine-with-GatsbyJS">Gatsby native support</a>.</p>
 
-<h3 id="toc_13">Sanity.io</h3>
+<h3 id="toc_19">Sanity.io</h3>
 
 <p>Support via front-end dev frameworks and the <a href="https://support.imageengine.io/hc/en-us/articles/4415463696525-How-to-use-ImageEngine-and-Sanity-io-with-GatsbyJS">Gatsby native support</a>.</p>
 
-<h2 id="toc_14">Development framework plugins</h2>
+<h2 id="toc_20">Development framework plugins</h2>
 
-<h3 id="toc_15">Vue</h3>
-
-<p>(not maintained anymore)</p>
+<h3 id="toc_21">Vue</h3>
 
 <ul>
 <li>Documentation: <a href="https://support.imageengine.io/hc/en-us/articles/4404168229005-Vue-js-Integration-Guide">https://support.imageengine.io/hc/en-us/articles/4404168229005-Vue-js-Integration-Guide</a></li>
-<li>Example App: </li>
+<li>Example App: <a href="https://codesandbox.io/p/sandbox/charming-yonath-9j1cb?file=%2Fsrc%2FApp.vue">https://codesandbox.io/p/sandbox/charming-yonath-9j1cb?file=%2Fsrc%2FApp.vue</a></li>
+<li>GitHub: <a href="https://github.com/imgeng/imageengine-vue">https://github.com/imgeng/imageengine-vue</a></li>
+<li>npmjs.com: <a href="https://www.npmjs.com/package/@imageengine/vue">https://www.npmjs.com/package/@imageengine/vue</a></li>
 </ul>
 
-<h3 id="toc_16">Vue3</h3>
+<h3 id="toc_22">Vue3</h3>
 
 <ul>
-<li>Documentation: </li>
+<li>Documentation: <a href="https://support.imageengine.io/hc/en-us/articles/4404168229005-Vue-js-Integration-Guide">https://support.imageengine.io/hc/en-us/articles/4404168229005-Vue-js-Integration-Guide</a></li>
+<li>Example App: <a href="https://codesandbox.io/p/github/imgeng/imageengine-vue3/main">https://codesandbox.io/p/github/imgeng/imageengine-vue3/</a></li>
 <li>npmjs.com: <a href="https://www.npmjs.com/package/@imageengine/vue3">https://www.npmjs.com/package/@imageengine/vue3</a></li>
+<li>GitHub: <a href="https://github.com/imgeng/imageengine-vue3">https://github.com/imgeng/imageengine-vue3</a></li>
 </ul>
 
-<h3 id="toc_17">React</h3>
+<h3 id="toc_23">React</h3>
 
 <ul>
-<li>Install: </li>
-<li>Documentation: </li>
+<li>Documentation: <a href="https://support.imageengine.io/hc/en-us/articles/4404180769805-React-Integration-Guide">https://support.imageengine.io/hc/en-us/articles/4404180769805-React-Integration-Guide</a></li>
+<li>Example App: <a href="https://codesandbox.io/p/sandbox/fervent-mirzakhani-yh124">https://codesandbox.io/p/sandbox/fervent-mirzakhani-yh124</a></li>
+<li>npmjs.com: <a href="https://www.npmjs.com/package/@imageengine/react">https://www.npmjs.com/package/@imageengine/react</a></li>
+<li>Github: <a href="https://github.com/imgeng/imageengine-react">https://github.com/imgeng/imageengine-react</a></li>
 </ul>
 
-<h3 id="toc_18">Angular</h3>
+<h3 id="toc_24">Angular</h3>
 
 <ul>
-<li>Install:</li>
-<li>Documentation: </li>
+<li>Documentation: <a href="https://support.imageengine.io/hc/en-us/articles/4408922345101-AngularJS-integration-guide">https://support.imageengine.io/hc/en-us/articles/4408922345101-AngularJS-integration-guide</a> and <a href="https://github.com/imgeng/imageengine-angular/blob/main/projects/ngx-imageengine/README.md">https://github.com/imgeng/imageengine-angular/blob/main/projects/ngx-imageengine/README.md</a></li>
+<li>Example App: <a href="https://micaelnussbaumer.com/ie-angular-sample/">https://micaelnussbaumer.com/ie-angular-sample/</a> and <a href="https://github.com/mnussbaumer/ie-angular-sample/tree/master">https://github.com/mnussbaumer/ie-angular-sample/tree/master</a></li>
+<li>npmjs.com: <a href="https://www.npmjs.com/package/@imageengine/angular">https://www.npmjs.com/package/@imageengine/angular</a></li>
+<li>Github: <a href="https://github.com/imgeng/imageengine-angular">https://github.com/imgeng/imageengine-angular</a></li>
 </ul>
 
-<h3 id="toc_19">Nuxt</h3>
+<h3 id="toc_25">Nuxt</h3>
 
 <ul>
-<li>Install:</li>
-<li>Documentation: </li>
+<li>Documentation: <a href="https://support.imageengine.io/hc/en-us/articles/4443720110093-Nuxt-image-Integration-Guide">https://support.imageengine.io/hc/en-us/articles/4443720110093-Nuxt-image-Integration-Guide</a></li>
+<li>Example App: <a href="https://codesandbox.io/p/github/jonarnes/ie-nuxt-image/master">https://codesandbox.io/p/github/jonarnes/ie-nuxt-image/master</a></li>
+<li>npmjs.com: <a href="https://www.npmjs.com/package/@nuxt/image">https://www.npmjs.com/package/@nuxt/image</a></li>
+<li>Github: </li>
 </ul>
 
-<h3 id="toc_20">Gatsby</h3>
+<h3 id="toc_26">Gatsby</h3>
 
 <ul>
-<li>Install:</li>
-<li>Documentation: </li>
+<li>Documentation: <a href="https://support.imageengine.io/hc/en-us/articles/4415470516877-Getting-Started-With-ImageEngine-and-GatsbyJS">https://support.imageengine.io/hc/en-us/articles/4415470516877-Getting-Started-With-ImageEngine-and-GatsbyJS</a></li>
+<li>Example App: </li>
+<li>npmjs.com: <a href="https://www.npmjs.com/package/@imageengine/gatsby-plugin-imageengine">https://www.npmjs.com/package/@imageengine/gatsby-plugin-imageengine</a></li>
+<li>Github: <a href="https://github.com/imgeng/imageengine-gatsby/">https://github.com/imgeng/imageengine-gatsby/</a></li>
 </ul>
 
-<h3 id="toc_21">Django</h3>
+<h3 id="toc_27">Django</h3>
 
 <ul>
-<li>Install:</li>
-<li>Documentation: </li>
+<li>Documentation: <a href="https://support.imageengine.io/hc/en-us/articles/4416915771533-How-to-Implement-ImageEngine-in-your-Django-app">https://support.imageengine.io/hc/en-us/articles/4416915771533-How-to-Implement-ImageEngine-in-your-Django-app</a></li>
 </ul>
 
-<h3 id="toc_22">Laravel</h3>
+<h3 id="toc_28">Laravel</h3>
 
 <ul>
-<li>Install:</li>
-<li>Documentation: </li>
+<li>Documentation: <a href="https://support.imageengine.io/hc/en-us/articles/4422730973069-How-to-use-ImageEngine-in-Laravel">https://support.imageengine.io/hc/en-us/articles/4422730973069-How-to-use-ImageEngine-in-Laravel</a></li>
 </ul>
 </div>
 
